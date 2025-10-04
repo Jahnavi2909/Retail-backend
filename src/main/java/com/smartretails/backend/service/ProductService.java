@@ -1,14 +1,13 @@
 package com.smartretails.backend.service;
 
-
-import org.springframework.data.domain.Page;
-
+import com.smartretails.backend.config.PageResponse;
+import com.smartretails.backend.dto.ProductDto;
 import com.smartretails.backend.entity.Product;
 
 public interface ProductService {
-    Page<Product> getProducts(int page, int size);
+    PageResponse<ProductDto> getProducts(int page, int size);
 
-    Page<Product> searchProduct(String sku, String name, int page, int size);
+    PageResponse<ProductDto> searchProduct(String sku, String name, int page, int size);
 
     Product createProduct(Product product);
 

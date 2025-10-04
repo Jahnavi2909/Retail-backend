@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartretails.backend.config.ApiResponse;
+import com.smartretails.backend.dto.PurchaseOrderDto;
 import com.smartretails.backend.entity.PurchaseOrder;
+import com.smartretails.backend.mapper.DtoMapper;
 import com.smartretails.backend.service.PurchaseOrderService;
 
 import jakarta.validation.Valid;
@@ -27,25 +29,28 @@ public class PurchaseOrderController {
     private final PurchaseOrderService purchaseOrderRepository;
 
     @GetMapping
-    public ResponseEntity<ApiResponse<List<PurchaseOrder>>> getAllOrders() {
-        return ResponseEntity.ok(ApiResponse.success(purchaseOrderRepository.getAllOrders()));
+    public ResponseEntity<ApiResponse<List<PurchaseOrderDto>>> getAllOrders() {
+        return ResponseEntity.ok(ApiResponse.success(
+                DtoMapper.mapList(purchaseOrderRepository.getAllOrders(), DtoMapper::toPurchaseOrderDto)));
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse<PurchaseOrder>> createOrder(@Valid @RequestBody PurchaseOrder purchaseOrder) {
+    public ResponseEntity<ApiResponse<PurchaseOrderDto>> createOrder(@Valid @RequestBody PurchaseOrder purchaseOrder) {
         return ResponseEntity.ok(ApiResponse.success("Purchase order saved",
-                purchaseOrderRepository.createPurchaseOrder(purchaseOrder)));
+                DtoMapper.toPurchaseOrderDto(purchaseOrderRepository.createPurchaseOrder(purchaseOrder))));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<PurchaseOrder>> getOrderById(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(ApiResponse.success(purchaseOrderRepository.getOrderById(id)));
+    public ResponseEntity<ApiResponse<PurchaseOrderDto>> getOrderById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(ApiResponse.success(
+                DtoMapper.toPurchaseOrderDto(purchaseOrderRepository.getOrderById(id))));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ApiResponse<PurchaseOrder>> updateOrder(@PathVariable("id") Long id,
+    public ResponseEntity<ApiResponse<PurchaseOrderDto>> updateOrder(@PathVariable("id") Long id,
             @Valid @RequestBody PurchaseOrder purchaseOrder) {
-        return ResponseEntity.ok(ApiResponse.success(purchaseOrderRepository.updateOrder(id, purchaseOrder)));
+        return ResponseEntity.ok(ApiResponse.success(
+                DtoMapper.toPurchaseOrderDto(purchaseOrderRepository.updateOrder(id, purchaseOrder))));
     }
 
     @DeleteMapping("/{id}")

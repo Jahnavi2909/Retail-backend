@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smartretails.backend.config.ApiResponse;
+import com.smartretails.backend.dto.StockBatchDto;
 import com.smartretails.backend.entity.StockBatch;
+import com.smartretails.backend.mapper.DtoMapper;
 import com.smartretails.backend.service.InventoryService;
 
 import jakarta.validation.Valid;
@@ -25,13 +27,15 @@ public class InventoryController {
     private final InventoryService inventoryRepository;
 
     @GetMapping("/{productId}")
-    public ResponseEntity<ApiResponse<List<StockBatch>>> getStock(@PathVariable("productId") Long productId) {
-        return ResponseEntity.ok(ApiResponse.success(inventoryRepository.geStockBatchs(productId)));
+    public ResponseEntity<ApiResponse<List<StockBatchDto>>> getStock(@PathVariable("productId") Long productId) {
+        return ResponseEntity.ok(ApiResponse.success(
+                DtoMapper.mapList(inventoryRepository.geStockBatchs(productId), DtoMapper::toStockBatchDto)));
     }
 
     @PostMapping("/batch")
-    public ResponseEntity<ApiResponse<StockBatch>> addBatch(@Valid @RequestBody StockBatch batch) {
-        return ResponseEntity.ok(ApiResponse.success("Batch saved", inventoryRepository.addBatch(batch)));
+    public ResponseEntity<ApiResponse<StockBatchDto>> addBatch(@Valid @RequestBody StockBatch batch) {
+        return ResponseEntity.ok(ApiResponse.success("Batch saved",
+                DtoMapper.toStockBatchDto(inventoryRepository.addBatch(batch))));
     }
 
 }

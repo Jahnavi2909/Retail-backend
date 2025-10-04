@@ -16,6 +16,8 @@ import com.smartretails.backend.entity.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByUsername(String username);
+    
+    boolean existsByUsername(String username);
 
     @Transactional
     @Modifying
@@ -27,7 +29,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("UPDATE User u SET u.lastLogin = :loginTime WHERE u.username = :username")
     void updateLastLogin(@Param("username") String username, @Param("loginTime") LocalDateTime loginTime);
 
+    @Transactional
     @Modifying
     @Query("UPDATE User u SET u.lockedUntil = :lockedUntil WHERE u.username = :username")
     void lockUser(@Param("username") String username, @Param("lockedUntil") LocalDateTime lockedUntil);
 }
+
+
+

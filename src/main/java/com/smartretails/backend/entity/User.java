@@ -56,7 +56,7 @@ public class User {
     private Boolean isActive = true;
 
     @CreatedDate
-    @Column(name = "creared_at", nullable = false, updatable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "last_login")

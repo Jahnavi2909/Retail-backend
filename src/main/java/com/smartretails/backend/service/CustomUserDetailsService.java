@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+
 public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
@@ -30,7 +31,8 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (!Boolean.TRUE.equals(user.getIsActive()))
             throw new UsernameNotFoundException("User inactive");
 
-        Collection<? extends GrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(user.getRole().name()));
+        Collection<? extends GrantedAuthority> authorities = List
+                .of(new SimpleGrantedAuthority(user.getRole().name()));
 
         boolean accountNonLocked = user.getLockedUntil() == null || user.getLockedUntil().isBefore(LocalDateTime.now());
         return new org.springframework.security.core.userdetails.User(

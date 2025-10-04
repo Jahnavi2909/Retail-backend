@@ -1,12 +1,17 @@
 package com.smartretails.backend.service.impl;
 
+import java.util.stream.Collectors;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.smartretails.backend.config.PageResponse;
+import com.smartretails.backend.dto.ProductDto;
 import com.smartretails.backend.entity.Product;
+import com.smartretails.backend.mapper.DtoMapper;
 import com.smartretails.backend.repository.ProductRepository;
 import com.smartretails.backend.service.ProductService;
 
@@ -21,23 +26,37 @@ public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productJpaRepository;
 
-    @Override
-    public Page<Product> getProducts(int page, int size) {
+    public PageResponse<ProductDto> getProducts(int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdAt"));
-        return productJpaRepository.findAll(pageable);
+        Page<Product> productPage = productJpaRepository.findAll(pageable);
+
+        return buildPageResponse(productPage);
     }
 
-    @Override
-    public Page<Product> searchProduct(String sku, String name, int page, int size) {
+    public PageResponse<ProductDto> searchProduct(String sku, String name, int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("name").ascending());
-        return productJpaRepository.search(sku, name, pageable);
+        Page<Product> productPage = productJpaRepository.search(sku, name, pageable);
+
+        return buildPageResponse(productPage);
+    }
+
+    private PageResponse<ProductDto> buildPageResponse(Page<Product> productPage) {
+        return PageResponse.<ProductDto>builder()
+                .content(productPage.getContent().stream().map(DtoMapper::toProductDto).collect(Collectors.toList()))
+                .page(productPage.getNumber())
+                .size(productPage.getSize())
+                .totalElements(productPage.getTotalElements())
+                .totalPages(productPage.getTotalPages())
+                .first(productPage.isFirst())
+                .last(productPage.isLast())
+                .empty(productPage.isEmpty())
+                .build();
     }
 
     @Override
     @Transactional
     public Product createProduct(Product product) {
         if (productJpaRepository.existsBySku(product.getSku())) {
-            ;
             throw new ValidationException("Sku must be unique..");
         }
 
