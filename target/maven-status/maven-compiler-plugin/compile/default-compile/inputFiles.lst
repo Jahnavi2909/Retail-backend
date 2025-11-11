@@ -61,6 +61,7 @@ C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Bac
 C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\dto\SaleDto.java
 C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\dto\PurchaseOrderItemDto.java
 C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\dto\StockBatchDto.java
+C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\controller\HealthController.java
 C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\controller\UserController.java
 C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\exception\GlobalExceptionHandler.java
 C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\entity\Sale.java
