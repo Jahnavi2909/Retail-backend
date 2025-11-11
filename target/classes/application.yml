@@ -6,15 +6,14 @@ spring:
     password: gYBzdvlsuOgxxWCQqpyzmUOXUofwMRdK
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    hibernate:  
-      ddl-auto: update    # use flyway for schema; use 'update' only for dev
-    show-sql: ${SPRING_JPA_SHOW_SQL:false}
-    
+    hibernate:
+      ddl-auto: update
+    show-sql: false
     properties:
       hibernate:
         format_sql: true
   flyway:
-    enabled: false   # disable to avoid Unsupported Database error and unblock startup
+    enabled: false
 
 server:
   port: ${PORT:8080}
