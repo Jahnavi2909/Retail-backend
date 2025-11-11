@@ -1,11 +1,11 @@
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/products_db
-    username: vinod_mudavath
-    password: Mangi@143
+    url: jdbc:postgresql://postgres.railway.internal:5432/railway
+    username: postgres
+    password: gYBzdvlsuOgxxWCQqpyzmUOXUofwMRdK
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:  
       ddl-auto: update    # use flyway for schema; use 'update' only for dev
     show-sql: ${SPRING_JPA_SHOW_SQL:false}
