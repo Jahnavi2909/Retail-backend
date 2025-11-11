@@ -40,7 +40,6 @@ com\smartretails\backend\security\SecurityConfig.class
 com\smartretails\backend\entity\PurchaseOrder.class
 com\smartretails\backend\entity\Sale$SaleBuilder.class
 com\smartretails\backend\dto\SaleRequest$SaleRequestBuilder.class
-com\yourcompany\yourproject\controller\HealthController.class
 com\smartretails\backend\dto\LowStockDto$LowStockDtoBuilder.class
 com\smartretails\backend\dto\SaleItemDto.class
 com\smartretails\backend\repository\SaleRepository.class
