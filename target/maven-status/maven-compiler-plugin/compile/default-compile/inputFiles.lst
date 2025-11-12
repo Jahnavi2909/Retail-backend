@@ -17,6 +17,7 @@ C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Bac
 C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\repository\UserRepository.java
 C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\service\SupplierService.java
 C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\dto\LowStockDto.java
+C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\config\CorsConfig.java
 C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\controller\SupplierController.java
 C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\repository\SupplierRepository.java
 C:\Users\jahna\OneDrive\Desktop\Retail-backend\Smart-Retail-Inventory-System-Backend\src\main\java\com\smartretails\backend\service\InventoryService.java

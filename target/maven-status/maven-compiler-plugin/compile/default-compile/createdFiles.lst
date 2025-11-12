@@ -39,6 +39,7 @@ com\smartretails\backend\service\AuthService.class
 com\smartretails\backend\security\SecurityConfig.class
 com\smartretails\backend\entity\PurchaseOrder.class
 com\smartretails\backend\entity\Sale$SaleBuilder.class
+com\smartretails\backend\config\CorsConfig$1.class
 com\smartretails\backend\dto\SaleRequest$SaleRequestBuilder.class
 com\smartretails\backend\dto\LowStockDto$LowStockDtoBuilder.class
 com\smartretails\backend\dto\SaleItemDto.class
@@ -88,6 +89,7 @@ com\smartretails\backend\repository\PurchaseOrderItemRepository.class
 com\smartretails\backend\service\PurchaseOrderService.class
 com\smartretails\backend\dto\SaleItemDto$SaleItemDtoBuilder.class
 com\smartretails\backend\entity\User.class
+com\smartretails\backend\config\CorsConfig.class
 com\smartretails\backend\dto\PurchaseOrderItemDto$PurchaseOrderItemDtoBuilder.class
 com\smartretails\backend\dto\UserResponseDto.class
 com\smartretails\backend\dto\LoginResponse.class
