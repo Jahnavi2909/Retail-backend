@@ -106,7 +106,7 @@ public class SecurityConfig {
 
         // ⚠️ Add both environments for safety
         configuration.setAllowedOrigins(List.of(
-                "https://d1x2sux8i7gb9h.cloudfront.net", // Production (CloudFront)
+                "https://retail-frontend-production.up.railway.app", // Production (railway)
                 "http://localhost:5173" // Local development
         ));
 
